@@ -16,7 +16,7 @@ $ valet secure
 
 ### From Zero
 
-```bash
+``` bash
 # make a laravel app
 $ laravel new example-app
 
@@ -32,3 +32,27 @@ $ npm install
 
 $ npm run watch
 ```
+
+### With Tailwind
+
+``` bash
+$ npm install --save-dev tailwindcss
+
+$ npx tailwindcss init
+```
+
+#### Add files to purge
+
+In **tailwind.config.js**,
+
+```
+    purge: [
+        'resources/views/**/*.blade.php',
+        'resources/js/**/*.js',
+    ],
+```
+
+#### Tailwind in production
+
+By default, Tailwind looks for the config file in the root of the project directory,
+so it's not required anymore to explicitly declare it in webpack.mix.js.
