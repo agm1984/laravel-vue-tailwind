@@ -13,3 +13,22 @@ $ valet link
 
 $ valet secure
 ```
+
+### From Zero
+
+```bash
+# make a laravel app
+$ laravel new example-app
+
+# install vue
+$ composer require laravel/ui
+
+$ php artisan ui vue
+
+# add auth
+$ php artisan ui vue --auth
+
+$ npm install
+
+$ npm run watch
+```
