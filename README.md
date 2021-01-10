@@ -43,19 +43,36 @@ $ npx tailwindcss init
 
 #### Add files to purge
 
-In **tailwind.config.js**,
+In **tailwind.config.js**:
 
 ```
     purge: [
         'resources/views/**/*.blade.php',
         'resources/js/**/*.js',
+        './resources/**/*.vue',
     ],
 ```
 
-#### Tailwind in production
+Update **webpack.mix.js**:
 
-By default, Tailwind looks for the config file in the root of the project directory,
-so it's not required anymore to explicitly declare it in webpack.mix.js.
+``` javascript
+mix.js('resources/js/app.js', 'public/js')
+    .vue()
+    .sass('resources/sass/app.scss', 'public/css', {}, [
+        tailwindcss('tailwind.config.js'),
+    ])
+    .options({
+        processCssUrls: false,
+    });
+```
+
+Add in **app.scss**:
+
+``` css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
 ## Database
 
