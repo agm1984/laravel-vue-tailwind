@@ -56,3 +56,23 @@ In **tailwind.config.js**,
 
 By default, Tailwind looks for the config file in the root of the project directory,
 so it's not required anymore to explicitly declare it in webpack.mix.js.
+
+## Database
+
+``` bash
+$ mysql -u root -p
+```
+
+``` sql
+CREATE DATABASE tailwindauth;
+
+CREATE USER 'tailwindauth'@'localhost' IDENTIFIED BY 'tailwindauth';
+
+GRANT ALL PRIVILEGES ON tailwindauth.* TO 'tailwindauth'@'localhost';
+```
+
+Don't forget to add the users table:
+
+``` bash
+$ php artisan migrate
+```
